@@ -1,8 +1,8 @@
 {
-  "name": "pantheon-systems/example-drops-8-composer",
-  "description": "Install drops-8 with Composer on Pantheon.",
+  "name": "drupal/drupal",
+  "description": "Drupal is an open source content management platform powering millions of websites and applications.",
   "type": "project",
-  "license": "MIT",
+  "license": "GPL-2.0+",
   "repositories": [
     {
       "type": "composer",
@@ -10,20 +10,48 @@
     }
   ],
     "require": {
-    "composer/installers": "^1.0.20",
-    "cweagans/composer-patches": "^1.0",
-    "drupal-composer/drupal-scaffold": "^2.0.1",
+    "composer/installers": "^1.2",
+    "cweagans/composer-patches": "^1.6",
+    "drupal-composer/drupal-scaffold": "^2.2",
     "drupal/config_direct_save": "^1.0",
     "drupal/config_installer": "^1.0",
     "drupal/console": "^1",
     "drupal/core": "^8",
-    "drupal/pathauto": "^1.0",
-    "drupal/simple_block": "^1.0@beta",
-    "drush/drush": "~8",
-    "drupal/pathauto": "^1.0",
+    "drush/drush": "^8.1",
+    "drupal/admin_toolbar": "^1.18",
+    "drupal/adminimal_admin_toolbar": "^1.3",
+    "drupal/block_visibility_groups": "^1.1",
+    "drupal/blockgroup": "^1.0",
+    "drupal/blog": "^2.0@dev",
+    "drupal/bootstrap_layouts": "^4.1",
+    "drupal/chosen": "^2.1",
+    "drupal/ckeditor_bootstrap_buttons": "^1.1",
+    "drupal/components": "^1.0",
+    "drupal/ctools": "^3.0@beta",
+    "drupal/devel": "^1.0@RC",
+    "drupal/entityqueue": "^1.0@alpha",
+    "drupal/feeds": "^3.0@dev",
+    "drupal/fontawesome": "^1.0@dev",
+    "drupal/layout_plugin": "^1.0@alpha",
+    "drupal/libraries": "^3.0@dev",
+    "drupal/menu_block": "^1.4",
+    "drupal/page_manager": "^1.0@alpha",
+    "drupal/panels": "^3.0@beta",
+    "drupal/pathauto": "^1.0@RC",
+    "drupal/redirect": "^1.0@alpha",
     "drupal/term_condition": "^1.1",
-    "drupal/domain": "^1.1",
     "drupal/token": "^1.0@RC",
+    "drupal/video": "^1.2",
+    "drupal/video_embed_field": "^1.4",
+    "drupal/views_infinite_scroll": "^1.3",
+    "drupal/workbench": "^1.0@alpha",
+    "drupal/workbench_access": "^1.0@alpha",
+    "drupal/workbench_moderation": "^1.2",
+    "webflo/drupal-finder": "^0.2.1",
+    "webmozart/path-util": "^2.3",
+    "wikimedia/composer-merge-plugin": "~1.3",
+    "drupal/domain": "^1.0@alpha",
+    "drupal/webform": "^5.0@beta",
     "rvtraveller/qs-composer-installer": "^1.1",
     "webflo/drupal-core-strict": "^8"
   },
@@ -76,16 +104,15 @@
   "extra": {
     "installer-paths": {
       "web/core": ["type:drupal-core"],
-      "web/modules/contrib/{$name}": ["type:drupal-module"],
-      "web/profiles/contrib/{$name}": ["type:drupal-profile"],
-      "web/themes/contrib/{$name}": ["type:drupal-theme"],
-      "drush/contrib/{$name}": ["type:drupal-drush"]
+      "web/profiles/easteregg_kit/modules/{$name}": ["type:drupal-module"],
+      "web/profiles/{$name}": ["type:drupal-profile"],
+      "web/profiles/easteregg_kit/themes/contrib/{$name}": ["type:drupal-theme"],
+      "drush/contrib/{$name}": ["type:drupal-drush"],
+      "web/libraries/{$name}": ["type:drupal-library"]
     },
     "build-env": {
       "install-cms": [
-        "drush site-install standard --account-mail={account-mail} --account-name={account-name} --account-pass={account-pass} --site-mail={site-mail} --site-name={site-name} --yes",
-        "drush pm-enable config_direct_save simple_block --yes",
-        "drush pm-uninstall block_content --yes"
+        "drush site-install standard --account-mail={account-mail} --account-name={account-name} --account-pass={account-pass} --site-mail={site-mail} --site-name={site-name} --yes"
       ],
       "export-configuration": "drush config-export --yes"
     },
